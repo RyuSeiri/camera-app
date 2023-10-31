@@ -2,7 +2,7 @@
   "name": "camera-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/",
+  "homepage": "/camera-app/",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

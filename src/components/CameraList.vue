@@ -1,19 +1,15 @@
 <template>
   <div>
-    <!-- 一览画面 -->
-    <el-table :data="cameraList">
-      <!-- 表格列 -->
-      <el-table-column prop="name" label="相机名称"></el-table-column>
-      <el-table-column prop="resolution" label="分辨率"></el-table-column>
-      <!-- 更多列 -->
-    </el-table>
-
-    <!-- 详细画面 -->
-    <div v-if="selectedCamera">
-      <h2>{{ selectedCamera.name }}</h2>
-      <p>分辨率: {{ selectedCamera.resolution }}</p>
-      <!-- 更多详细信息 -->
-    </div>
+    <h1>相机列表</h1>
+    <ul>
+      <li v-for="camera in cameras" :key="camera.id">
+        <router-link :to="'/camera/' + camera.id">
+          <img :src="camera.image" alt="Camera Thumbnail" />
+          <h2>{{ camera.brand }} {{ camera.model }}</h2>
+          <p>价格: {{ camera.price }}</p>
+        </router-link>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -21,13 +17,18 @@
 export default {
   data() {
     return {
-      cameraList: [], // 相机列表数据
-      selectedCamera: null // 当前选中的相机
+      cameras: [
+        {
+          id: 1,
+          brand: 'Nikon',
+          model: 'D850',
+          price: '$2500',
+          image: 'url_to_nikon_d850_thumbnail.jpg',
+          description: 'Nikon D850 is a high-end DSLR camera with excellent image quality.'
+        },
+        // Add more camera objects as needed
+      ]
     };
-  },
-  // 在此组件中获取相机数据并更新cameraList
-  mounted() {
-    // 使用Axios或其他方法获取相机数据并更新cameraList
   }
 };
 </script>

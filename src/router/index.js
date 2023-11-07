@@ -5,8 +5,7 @@ import CameraDetail from '@/components/CameraDetail.vue';
 
 const routes = [
   { path: '/', component: CameraList },
-  { path: '/detail/:id', component: CameraDetail, props: true },
-  // { path: '/comparison', component: CameraComparison }
+  { path: '/camera/:id', component: CameraDetail, props: true }
 ];
 
 const router = createRouter({
